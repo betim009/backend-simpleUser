@@ -1,0 +1,28 @@
+{
+  "name": "backend-simpleuser",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "run dev": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/betim009/backend-simpleUser.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/betim009/backend-simpleUser/issues"
+  },
+  "homepage": "https://github.com/betim009/backend-simpleUser#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.0",
+    "mysql2": "^3.11.3",
+    "nodemon": "^3.1.7"
+  }
+}
