@@ -1,5 +1,14 @@
 const connection = require("./connection");
 
+const selectPage = async (count, page) => {
+    // Executa a consulta SQL com LIMIT e OFFSET
+    const [result] = await connection.query(
+        'SELECT * FROM users LIMIT ? OFFSET ?',
+        [count, page]
+    );
+    return result;
+};
+
 async function selectUser(user) {
     const { email, password } = user;
     try {
@@ -20,5 +29,6 @@ async function selectUser(user) {
 };
 
 module.exports = {
-    selectUser
+    selectUser,
+    selectPage
 };
