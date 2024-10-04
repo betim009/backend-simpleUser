@@ -28,7 +28,17 @@ async function selectUser(user) {
     }
 };
 
+async function insertUser(user) {
+    const { name, email, password } = user;
+    const [{ insertId }] = await connection.execute(
+        'INSERT INTO users (name, email, password) VALUES (?, ?, ?)',
+        [name, email, password]
+    );
+    return insertId;
+}
+
 module.exports = {
     selectUser,
-    selectPage
+    selectPage,
+    insertUser
 };

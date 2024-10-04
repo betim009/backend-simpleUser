@@ -1,4 +1,4 @@
-const { getLogin, findPage } = require("../services/users");
+const { getLogin, findPage, createNewUser } = require("../services/users");
 
 async function getAllUsers(req, res) {
     const { page = 1 } = req.query;  // Define o valor padrão para 1 se page não estiver presente
@@ -24,7 +24,14 @@ async function postLogin(req, res) {
     return res.status(500).json({ "message": "NOO" });
 };
 
+async function PostNewUser(req, res) {
+    const user = req.body;
+    const result = await createNewUser(user);
+    return res.status(200).json(result);
+}
+
 module.exports = {
     postLogin,
-    getAllUsers
+    getAllUsers,
+    PostNewUser
 };

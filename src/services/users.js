@@ -1,4 +1,4 @@
-const { selectUser, selectPage } = require("../models/users");
+const { selectUser, selectPage, insertUser } = require("../models/users");
 
 async function findPage(count, page) {
     const results = await selectPage(count, page);
@@ -10,7 +10,13 @@ async function getLogin(user) {
     return result;
 };
 
+async function createNewUser(user) {
+    const result = insertUser(user);
+    return result;
+}
+
 module.exports = {
     getLogin,
-    findPage
+    findPage,
+    createNewUser
 };
