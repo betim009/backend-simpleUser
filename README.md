@@ -32,8 +32,6 @@ Exemplo de JSON:
     "name": "João Silva",
     "email": "joao.silva@email.com",
     "password": "senha123",
-    "address": "Rua A, 123",
-    "phone": "1234567890",
   }
 
 
