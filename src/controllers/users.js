@@ -21,7 +21,7 @@ async function postLogin(req, res) {
     if (result) {
         return res.status(200).json(result);
     }
-    return res.status(500).json({ "message": "NOO" });
+    return res.status(500).json({ "message": "Not possible" });
 };
 
 async function PostNewUser(req, res) {

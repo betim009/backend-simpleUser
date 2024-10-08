@@ -17,7 +17,7 @@ async function selectUser(user) {
         );
 
         // Comparar a senha fornecida com a senha armazenada
-        if (password !== result.password_hash) {
+        if (password !== result.password) {
             return false;
         }
 

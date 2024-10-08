@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="resultado">
+
+    </div>
+    <input type="text" id="search">
+
+    <script>
+        const divResultado = document.getElementById('resultado');
+        const search = document.getElementById('search');
+
+        let usuarios = [];
+
+        async function getApi() {
+            const req = await fetch("http://127.0.0.1:3001/users");
+            const res = await req.json();
+
+
+            usuarios = [...res];
+
+            res.map((e) => divResultado.innerHTML += `
+                ${e.name}
+            `)
+
+            search.addEventListener('input', ({ target }) => {
+                const { value } = target;
+
+                const searchUser = usuarios.filter(e => e.name.includes(value));
+                searchUser.map((e) => divResultado.innerHTML = `
+                    ${e.name}
+                `)
+            });
+        }
+
+        getApi();
+    </script>
+</body>
+
+</html>
