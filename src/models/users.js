@@ -16,9 +16,13 @@ async function selectUser(user) {
             'SELECT * FROM users WHERE email = ?', [email]
         );
 
+        if (!result) {
+            return 1
+        }
+
         // Comparar a senha fornecida com a senha armazenada
         if (password !== result.password) {
-            return false;
+            return 2
         }
 
         return result

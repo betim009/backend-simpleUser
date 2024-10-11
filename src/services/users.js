@@ -6,8 +6,16 @@ async function findPage(count, page) {
 }
 
 async function getLogin(user) {
-    const result = selectUser(user);
-    return result;
+    const result = await selectUser(user);
+
+    const { id } = result;
+
+    const new_result = {
+        message: "Success",
+        id,
+    };
+
+    return new_result;
 };
 
 async function createNewUser(user) {
