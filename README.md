@@ -39,7 +39,7 @@ Minimo:
 
 
 
-UPDATE:
+UPDATE(PUT):
 ROTA: http://localhost:3001/users/1
 OBJETO PARA ENVIAR:
 {
@@ -47,3 +47,7 @@ OBJETO PARA ENVIAR:
     "address": "Rua A, 123",
     "phone": "1234567890"
 }
+
+
+DELETE(Delete)
+ROTA: http://localhost:3001/users/${id}
