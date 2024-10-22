@@ -18,4 +18,14 @@ router.put('/:id', async (req, res) => {
     return res.json(result);
 });
 
+router.delete('/:id', async (req, res) => {
+    const { id } = req.params;
+
+    const result = await connection.execute(
+        'DELETE FROM users WHERE id = ?',
+        [id]
+    );
+    return res.json(result);
+});
+
 module.exports = router;
