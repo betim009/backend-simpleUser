@@ -36,3 +36,14 @@ Minimo:
 "email": "joao.silva@email.com",
 "password": "senha123",
 }
+
+
+
+UPDATE:
+ROTA: http://localhost:3001/users/1
+OBJETO PARA ENVIAR:
+{
+    "name": "Alberto",
+    "address": "Rua A, 123",
+    "phone": "1234567890"
+}
