@@ -1,4 +1,4 @@
-const { getLogin, findPage, createNewUser } = require("../services/users");
+const { getLogin, findPage, createNewUser, updateUser, deleteUser } = require("../services/users");
 
 async function getAllUsers(req, res) {
     const { page = 1 } = req.query;  // Define o valor padrão para 1 se page não estiver presente
@@ -24,14 +24,46 @@ async function postLogin(req, res) {
     return res.status(500).json({ "message": "Not possible" });
 };
 
-async function PostNewUser(req, res) {
+async function postNewUser(req, res) {
     const user = req.body;
     const result = await createNewUser(user);
     return res.status(200).json(result);
 }
 
+async function putUserByID(req, res) {
+    const { id } = req.params;
+    const user = req.body;
+    const { address, phone } = user;
+
+    if (!address || !phone) {
+        return res.json({ "message": "Not possible, empty fields" })
+    }
+
+    const result = await updateUser(id, user);
+
+    if (!result) {
+        return res.json({ "message": "Not possible" });
+    }
+
+    return res.status(200).json({ "message": "Done" })
+}
+
+async function delUserByID(req, res) {
+    const { id } = req.params;
+
+    const result = await deleteUser(id);
+
+    if (!result) {
+        return res.json({ "message": "Not possible" });
+    };
+
+    return res.status(200).json({ "message": "Done" })
+};
+
 module.exports = {
     postLogin,
     getAllUsers,
-    PostNewUser
+    postNewUser,
+    putUserByID,
+    delUserByID
 };
