@@ -1,53 +1,43 @@
 # backend-simpleUser
 
-Rota de buscar todos os usuários:
-http://localhost:3001/users
-http://localhost:3001/users?page=2
+### Rota de buscar todos os usuários:
+GET: http://localhost:3001/users
 
-Rota de fazer login:
+GET: http://localhost:3001/users?page=${2}
+
+### Rota de fazer login:
 POST: http://localhost:3001/users/login
+
+Exemplo de JSON:
+{
+    "email": "joao.silva@email.com",
+    "password": "senha123"
+}
 
 se retornar 1: error de email
 
 se retornar 2: error de password
 
-Exemplo de JSON:
-{
-"email": "joao.silva@email.com",
-"password": "senha123",
-}
 
-Rota de criar um novo usuário:
+### Rota de criar um novo usuário:
 POST: http://localhost:3001/users
 
 Exemplo de JSON:
-Completo:
 {
-"name": "João Silva",
-"email": "joao.silva@email.com",
-"password": "senha123",
-"address": "Rua A, 123",
-"phone": "1234567890",
+    "name": "João Silva",
+    "email": "joao.silva@email.com",
+    "password": "senha123",
 }
 
-Minimo:
+### Rota para alterar o usuário por id:
+ROTA: http://localhost:3001/users/${id}
+
+JSON de exemplo:
 {
-"name": "João Silva",
-"email": "joao.silva@email.com",
-"password": "senha123",
-}
-
-
-
-UPDATE(PUT):
-ROTA: http://localhost:3001/users/1
-OBJETO PARA ENVIAR:
-{
-    "name": "Alberto",
-    "address": "Rua A, 123",
-    "phone": "1234567890"
+    "address": "Avenida, 123",
+    "phone": "1134567890"
 }
 
 
-DELETE(Delete)
+### Deletar um usário pelo id
 ROTA: http://localhost:3001/users/${id}
