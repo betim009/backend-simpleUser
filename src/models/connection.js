@@ -1,10 +1,11 @@
 const mysql = require('mysql2/promise');
+require('dotenv').config();
 
 const connection = mysql.createPool({
-    host: 'localhost', // Seu host do MySQL
-    user: 'root', // Seu usuário do MySQL
-    password: '1234', // Sua senha do MySQL
-    database: 'simple_user', // Nome do banco de dados criado anteriormente
+    host: process.env.HOST, // Seu host do MySQL
+    user: process.env.USER, // Seu usuário do MySQL
+    password: process.env.PASSWORD, // Sua senha do MySQL
+    database: process.env.DATABASE, // Nome do banco de dados criado anteriormente
     waitForConnections: true,
     connectionLimit: 10,
     queueLimit: 0
